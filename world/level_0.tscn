@@ -24,4 +24,7 @@ mesh = SubResource("PlaneMesh_wr4sc")
 shape = SubResource("ConcavePolygonShape3D_gaw6k")
 
 [node name="Player" parent="." instance=ExtResource("1_wr4sc")]
-transform = Transform3D(0.080529496, 0, 0.9967522, 0, 1, 0, -0.9967522, 0, 0.080529496, 2.5762415, 1.1592028, 2.1287668)
+transform = Transform3D(0.080529496, 0, 0.9967522, 0, 1, 0, -0.9967522, 0, 0.080529496, 0.31608248, 1.3907311, 3.2193692)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.46800697, 0, 0.88372475, 0, 1, 0, -0.88372475, 0, 0.46800697, 2.884136, 0.4708215, 1.2868397)
