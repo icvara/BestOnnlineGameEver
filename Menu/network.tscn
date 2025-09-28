@@ -2,17 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bn7b1l8txyurw" path="res://Menu/start_menu.gd" id="1_gnuge"]
 
-[node name="StartMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Network" type="CanvasLayer"]
 script = ExtResource("1_gnuge")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,7 +14,6 @@ grow_vertical = 2
 color = Color(0.7696908, 0.56733143, 0.8236971, 1)
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -100,6 +92,10 @@ offset_top = 359.5
 offset_right = 229.5
 offset_bottom = 390.5
 text = "Quit"
+
+[node name="ID_connection" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="Panel/Button_connect" to="." method="_on_button_connect_pressed"]
 [connection signal="pressed" from="Panel/Button_play" to="." method="_on_button_play_pressed"]

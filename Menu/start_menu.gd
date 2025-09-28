@@ -1,11 +1,11 @@
-extends Control
+extends CanvasLayer
 # "192.168.1.75" IP ZAZA
 #"127.0.0.1" IP BASE
 var IP_ADDRESS = "158.41.57.177"
 var PORT = 12345
 var MAX_CLIENTS = 5
 
-
+@export var player_scene: PackedScene
 #var isConnected = false
 
 func _ready() -> void:
@@ -31,8 +31,10 @@ func _on_button_quit_pressed() -> void:
 
 func _on_button_play_pressed() -> void:
 
-	get_tree().change_scene_to_file("res://world/main.tscn")
-		
+	#get_tree().change_scene_to_file("res://world/main.tscn")
+	$Panel.hide()	
+	$ColorRect.hide()
+	add_player.rpc_id(1,multiplayer.get_unique_id())
 		
 	
 
@@ -74,3 +76,16 @@ func _on_button_connect_pressed() -> void:
 
 func on_server_disconnected():
 	print("server dis-connected ")
+
+
+
+
+@rpc("any_peer","call_local")
+func add_player(id):
+	print(self.get_path()) 
+	print(name)
+	print(id)
+	var new_player = player_scene.instantiate()
+	new_player.name = str(id)
+	%Players.add_child(new_player)
+	$ID_connection.text = "ID" + str(id)

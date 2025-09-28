@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcv2lkwh74kjy"]
+[gd_scene load_steps=5 format=3 uid="uid://dcv2lkwh74kjy"]
 
-[ext_resource type="PackedScene" uid="uid://euf6egnlr2ks" path="res://Player/player_node.tscn" id="1_fapyx"]
 [ext_resource type="PackedScene" uid="uid://cpec2j1xmw03l" path="res://world/target.tscn" id="1_gaw6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pyxk"]
@@ -13,9 +12,6 @@ size = Vector2(200, 200)
 data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
 
 [node name="level0" type="Node3D"]
-
-[node name="Player_node" parent="." instance=ExtResource("1_fapyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7726107, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("1_gaw6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 18)

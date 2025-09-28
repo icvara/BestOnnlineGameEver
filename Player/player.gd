@@ -9,6 +9,10 @@ extends RigidBody3D
 
 var cam_yaw : float = 0
 
+func _ready() -> void:
+	global_position.y = 10
+
+
 func _physics_process(delta):
 	var input_vector := Vector3.ZERO
 

@@ -15,8 +15,9 @@ var camera: Camera3D = null
 
 
 func _ready():
+	pass
 	# Set initial camera offset
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Capture mouse
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Capture mouse
 
 
 func _process(delta: float) -> void:

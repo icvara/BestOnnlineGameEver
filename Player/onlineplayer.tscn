@@ -1,6 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://qsor0aggxjd"]
+[gd_scene load_steps=5 format=3 uid="uid://u3yml0uji7xl"]
 
-[ext_resource type="Script" uid="uid://bskfpymepqojq" path="res://Player/onlineplayer.gd" id="1_gaxro"]
+[sub_resource type="GDScript" id="GDScript_5vjjp"]
+script/source = "extends CharacterBody3D
+
+
+
+func _physics_process(delta: float) -> void:
+	var input_dir := Vector3.ZERO
+
+	if Input.is_action_pressed(\"up\"):
+		input_dir.x = 1
+	if Input.is_action_pressed(\"down\"):
+		input_dir.x = -1
+	if Input.is_action_pressed(\"left\"):
+		input_dir.z = 1
+	if Input.is_action_pressed(\"right\"):
+		input_dir.z = -1
+
+	if input_dir != Vector3.ZERO:
+		input_dir = input_dir.normalized()
+		
+	velocity = 10 *input_dir
+	move_and_slide()
+"
 
 [sub_resource type="SphereMesh" id="SphereMesh_t7ph0"]
 
@@ -13,7 +35,7 @@ properties/0/spawn = true
 properties/0/replication_mode = 1
 
 [node name="onlineplayer" type="CharacterBody3D"]
-script = ExtResource("1_gaxro")
+script = SubResource("GDScript_5vjjp")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.95212936, 0.30569533, 0, -0.30569533, 0.95212936, 0, 0.99336255, 2.0119977)
