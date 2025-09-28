@@ -10,13 +10,13 @@ func _physics_process(delta: float) -> void:
 
 	# WASD / Arrow input
 	if Input.is_action_pressed("up"):
-		input_dir.z -= 1
-	if Input.is_action_pressed("down"):
 		input_dir.z += 1
+	if Input.is_action_pressed("down"):
+		input_dir.z -= 1
 	if Input.is_action_pressed("left"):
-		input_dir.x -= 1
-	if Input.is_action_pressed("right"):
 		input_dir.x += 1
+	if Input.is_action_pressed("right"):
+		input_dir.x -= 1
 	input_dir = input_dir.normalized()
 
 	if input_dir != Vector3.ZERO:
