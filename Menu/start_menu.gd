@@ -35,7 +35,8 @@ func _on_button_play_pressed() -> void:
 	$Panel.hide()	
 	$ColorRect.hide()
 	add_player.rpc_id(1,multiplayer.get_unique_id())
-		
+	$ID_connection.text = "ID " + str(multiplayer.get_unique_id())
+
 	
 
 
@@ -52,7 +53,7 @@ func _on_button_host_pressed() -> void:
 
 
 func on_connection(id):
-	print("connected to server")
+	print(str(id) + "connected to server")
 	if !multiplayer.is_server():
 		$Panel/Button_connect/Label2.text = "Connected"
 		#isConnected = true
@@ -88,4 +89,3 @@ func add_player(id):
 	var new_player = player_scene.instantiate()
 	new_player.name = str(id)
 	%Players.add_child(new_player)
-	$ID_connection.text = "ID" + str(id)

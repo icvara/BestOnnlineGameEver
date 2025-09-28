@@ -16,26 +16,34 @@ var camera: Camera3D = null
 
 func _ready():
 	pass
+	if target.is_multiplayer_authority():
+		$Camera.make_current()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  
+
 	# Set initial camera offset
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Capture mouse
 
 
 func _process(delta: float) -> void:
-	position = target.position + Vector3(0,camera_height,0)
+	if target.is_multiplayer_authority():
+
+		position = target.position + Vector3(0,camera_height,0)
 	pass
 
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		# Rotate camera based on mouse movement
-		yaw -= event.relative.x * rotation_speed
-		pitch -= event.relative.y * rotation_speed
-		
-		# Clamp vertical rotation to avoid flipping
-		pitch = clamp(pitch, -1.0, 1.2)
-		
-		# Apply rotation to pivot
-		rotation = Vector3(pitch, yaw, 0)
-		target.cam_yaw= yaw
-		# Update camera pivot to follow ball position + height
-	#camera_pivot.global_position = global_position + Vector3(0, camera_height, 0)
+	if target.is_multiplayer_authority():
+
+		if event is InputEventMouseMotion:
+			# Rotate camera based on mouse movement
+			yaw -= event.relative.x * rotation_speed
+			pitch -= event.relative.y * rotation_speed
+			
+			# Clamp vertical rotation to avoid flipping
+			pitch = clamp(pitch, -1.0, 1.2)
+			
+			# Apply rotation to pivot
+			rotation = Vector3(pitch, yaw, 0)
+			target.cam_yaw= yaw
+			# Update camera pivot to follow ball position + height
+		#camera_pivot.global_position = global_position + Vector3(0, camera_height, 0)
