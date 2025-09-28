@@ -92,4 +92,5 @@ offset_bottom = 390.5
 text = "Quit"
 
 [connection signal="pressed" from="Panel/Button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Panel/Button_host" to="." method="_on_button_host_pressed"]
 [connection signal="pressed" from="Panel/Button_Quit" to="." method="_on_button_quit_pressed"]
