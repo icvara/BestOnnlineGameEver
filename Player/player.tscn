@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy8w6mr8jgjfy"]
+[gd_scene load_steps=5 format=3 uid="uid://dy8w6mr8jgjfy"]
 
 [ext_resource type="Script" uid="uid://vgkm0tdxabbq" path="res://Player/player.gd" id="1_l8h54"]
 
@@ -6,9 +6,13 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_4ntmi"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_l8h54"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Player" type="RigidBody3D"]
 script = ExtResource("1_l8h54")
-speed = null
 force_strength = null
 torque_strength = null
 target_path = null
@@ -18,3 +22,6 @@ shape = SubResource("SphereShape3D_l8h54")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_4ntmi")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_l8h54")

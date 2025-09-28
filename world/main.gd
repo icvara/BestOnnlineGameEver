@@ -6,11 +6,14 @@ extends Node3D
 var id = 0
 
 func _ready() -> void:
-	add_player(multiplayer.get_unique_id())
+	print(id)
 
+	#add_player(multiplayer.get_unique_id())
+	add_player.rpc_id(1,multiplayer.get_unique_id())
 
-
+@rpc("any_peer","call_local")
 func add_player(id):
+	print(id)
 	var new_player = player_scene.instantiate()
 	new_player.name = str(id)
 	$Players.add_child(new_player)

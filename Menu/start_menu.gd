@@ -5,6 +5,7 @@ var IP_ADDRESS = "158.41.57.177"
 var PORT = 12345
 var MAX_CLIENTS = 5
 
+
 #var isConnected = false
 
 func _ready() -> void:
@@ -29,10 +30,12 @@ func _on_button_quit_pressed() -> void:
 
 
 func _on_button_play_pressed() -> void:
-	#if isConnected:
-		get_tree().change_scene_to_file("res://world/main.tscn")
-		pass
-			# Create client
+
+	get_tree().change_scene_to_file("res://world/main.tscn")
+		
+		
+	
+
 
 		
 func _on_button_host_pressed() -> void:
