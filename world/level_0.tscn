@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cpec2j1xmw03l" path="res://world/target.tscn" id="1_gaw6k"]
 [ext_resource type="PackedScene" uid="uid://dy8w6mr8jgjfy" path="res://Player/player.tscn" id="1_wr4sc"]
+[ext_resource type="PackedScene" uid="uid://batwfw8acwjyg" path="res://camera_3d.tscn" id="2_gaw6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pyxk"]
 albedo_color = Color(0.24952677, 0.51298195, 0.46976316, 1)
@@ -37,4 +38,11 @@ shape = SubResource("ConcavePolygonShape3D_gaw6k")
 transform = Transform3D(0.080529496, 0, 0.9967522, 0, 1, 0, -0.9967522, 0, 0.080529496, 0.31608248, 1.3907311, 3.2193692)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+<<<<<<< HEAD
 transform = Transform3D(-0.00041655437, -0.9999997, -0.0007865684, 0.056744866, -0.00080893835, 0.99838847, -0.9983886, 0.00037124936, 0.05674519, 2.884136, 12.303409, 1.2868397)
+=======
+transform = Transform3D(0.46800697, 0, 0.88372475, 0, 1, 0, -0.88372475, 0, 0.46800697, 2.884136, 0.4708215, 1.2868397)
+
+[node name="Camera3D" parent="." instance=ExtResource("2_gaw6k")]
+target_path = NodePath("../Player")
+>>>>>>> a6e562fe62341b01f536a6b2f32f94f0d7cf8554
