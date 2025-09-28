@@ -1,37 +1,57 @@
 extends RigidBody3D
 
-@export var force_strength: float = 20.0
-@export var torque_strength: float = 5.0
-@export var target_path: NodePath  # assign your Camera3D here
+@export var rotation_speed := 0.005
+@export var camera_distance := 5.0
+@export var camera_height := 2.0
+@export var move_force := 2.0  # Adjust to taste
 
-var camera: Camera3D
+var yaw := 0.0
+var pitch := 0.0
 
-func _ready() -> void:
-	camera = get_node(target_path)
+var camera_pivot: Node3D = null
+var camera: Camera3D = null
 
-func _physics_process(delta: float) -> void:
-	var input_dir := Vector3.ZERO
+func _ready():
+	# Set initial camera offset
+	camera_pivot = %CameraPivot
+	camera = %CameraPivot/Camera
+	camera.position = Vector3(0, 0, camera_distance)
+	camera_pivot.position = Vector3(0, camera_height, 0)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Capture mouse
 
+
+func _physics_process(delta):
+	var input_vector := Vector3.ZERO
+		# Update camera pivot to follow ball position + height
+	camera_pivot.global_position = global_position + Vector3(0, camera_height, 0)
+	# Get input
 	if Input.is_action_pressed("up"):
-		input_dir.z += 1
+		input_vector.z -= 1
 	if Input.is_action_pressed("down"):
-		input_dir.z -= 1
+		input_vector.z += 1
 	if Input.is_action_pressed("left"):
-		input_dir.x += 1
+		input_vector.x -= 1
 	if Input.is_action_pressed("right"):
-		input_dir.x -= 1
+		input_vector.x += 1
+	
+	if input_vector != Vector3.ZERO:
+		input_vector = input_vector.normalized()
+		
+		# Rotate input to match camera orientation
+		var cam_yaw :float= camera_pivot.rotation.y
+		var direction := input_vector.rotated(Vector3.UP, cam_yaw)
+		
+		# Apply force in the desired direction
+		apply_torque_impulse(direction.cross(Vector3.UP) * move_force)
 
-	if input_dir != Vector3.ZERO:
-		input_dir = input_dir.normalized()
-
-		# Camera-relative movement
-		var forward = -camera.global_transform.basis.z
-		var right = camera.global_transform.basis.x
-		var move_dir = (forward * input_dir.z + right * input_dir.x).normalized()
-
-		# Apply force
-		apply_central_force(move_dir * force_strength)
-
-		# Optional torque for rolling
-		var torque = Vector3(input_dir.z, 0, -input_dir.x) * torque_strength
-		apply_torque(Vector3(input_dir.z, 0, -input_dir.x) * torque_strength)
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		# Rotate camera based on mouse movement
+		yaw -= event.relative.x * rotation_speed
+		pitch -= event.relative.y * rotation_speed
+		
+		# Clamp vertical rotation to avoid flipping
+		pitch = clamp(pitch, -1.0, 1.2)
+		
+		# Apply rotation to pivot
+		camera_pivot.rotation = Vector3(pitch, yaw, 0)
