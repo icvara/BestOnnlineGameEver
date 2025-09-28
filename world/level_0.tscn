@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcv2lkwh74kjy"]
+[gd_scene load_steps=6 format=3 uid="uid://dcv2lkwh74kjy"]
 
 [ext_resource type="PackedScene" uid="uid://dy8w6mr8jgjfy" path="res://Player/player.tscn" id="1_wr4sc"]
+[ext_resource type="PackedScene" uid="uid://batwfw8acwjyg" path="res://camera_3d.tscn" id="2_gaw6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pyxk"]
 albedo_color = Color(0.24952677, 0.51298195, 0.46976316, 1)
@@ -28,3 +29,6 @@ transform = Transform3D(0.080529496, 0, 0.9967522, 0, 1, 0, -0.9967522, 0, 0.080
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.46800697, 0, 0.88372475, 0, 1, 0, -0.88372475, 0, 0.46800697, 2.884136, 0.4708215, 1.2868397)
+
+[node name="Camera3D" parent="." instance=ExtResource("2_gaw6k")]
+target_path = NodePath("../Player")
