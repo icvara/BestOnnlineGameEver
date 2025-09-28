@@ -1,8 +1,8 @@
 extends Control
 # "192.168.1.75" IP ZAZA
 #"127.0.0.1" IP BASE
-var IP_ADDRESS = "192.168.1.75"
-var PORT = 9999
+var IP_ADDRESS = "158.41.57.177"
+var PORT = 12345
 var MAX_CLIENTS = 5
 
 var isConnected = false
