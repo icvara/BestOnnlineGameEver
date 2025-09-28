@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dcv2lkwh74kjy" path="res://world/level_0.tscn" id="1_gjxf3"]
 [ext_resource type="Script" uid="uid://fx1j1o16887y" path="res://world/main.gd" id="1_hyim0"]
-[ext_resource type="PackedScene" uid="uid://dy8w6mr8jgjfy" path="res://Player/player.tscn" id="2_4f7fj"]
+[ext_resource type="PackedScene" uid="uid://qsor0aggxjd" path="res://Player/onlineplayer.tscn" id="2_4f7fj"]
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_hyim0")
 player_scene = ExtResource("2_4f7fj")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("uid://dy8w6mr8jgjfy")
+_spawnable_scenes = PackedStringArray("uid://qsor0aggxjd")
 spawn_path = NodePath("../Players")
 
 [node name="level0" parent="." instance=ExtResource("1_gjxf3")]
