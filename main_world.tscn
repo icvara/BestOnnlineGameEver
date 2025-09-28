@@ -1,3 +1,3 @@
-[gd_scene format=3 uid="uid://cm57dhqqomodi"]
+[gd_scene load_steps=0 format=3 uid="uid://cm57dhqqomodi"]
 
 [node name="MainWorld" type="Node3D"]
