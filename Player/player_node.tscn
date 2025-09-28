@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://euf6egnlr2ks"]
+
+[ext_resource type="PackedScene" uid="uid://dy8w6mr8jgjfy" path="res://Player/player.tscn" id="1_7ia6u"]
+[ext_resource type="Script" uid="uid://vwjwxn7eodtr" path="res://Player/camera.gd" id="2_7ia6u"]
+
+[node name="Player_node" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_7ia6u")]
+
+[node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+script = ExtResource("2_7ia6u")
+target = NodePath("../Player")
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, -0.1228048, 0.99243087, 0, -0.99243087, -0.1228048, 0, 9.272148, 2.18114)

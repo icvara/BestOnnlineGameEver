@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy8w6mr8jgjfy"]
+[gd_scene load_steps=6 format=3 uid="uid://dy8w6mr8jgjfy"]
 
 [ext_resource type="Script" uid="uid://vgkm0tdxabbq" path="res://Player/player.gd" id="1_l8h54"]
 
@@ -11,6 +11,9 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
+[sub_resource type="BoxMesh" id="BoxMesh_l8h54"]
+size = Vector3(0.2, 1, 1)
+
 [node name="Player" type="RigidBody3D"]
 script = ExtResource("1_l8h54")
 
@@ -22,3 +25,7 @@ mesh = SubResource("SphereMesh_4ntmi")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_l8h54")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3710916)
+mesh = SubResource("BoxMesh_l8h54")
