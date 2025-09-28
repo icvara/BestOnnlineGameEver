@@ -8,6 +8,10 @@
 
 [node name="Player" type="RigidBody3D"]
 script = ExtResource("1_l8h54")
+speed = null
+force_strength = null
+torque_strength = null
+target_path = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_l8h54")
