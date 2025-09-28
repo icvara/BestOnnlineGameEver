@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcv2lkwh74kjy"]
+
+[ext_resource type="PackedScene" uid="uid://dy8w6mr8jgjfy" path="res://Player/player.tscn" id="1_wr4sc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pyxk"]
+albedo_color = Color(0.24952677, 0.51298195, 0.46976316, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wr4sc"]
+size = Vector2(2, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gaw6k"]
+data = PackedVector3Array(1, 0, 10, -1, 0, 10, 1, 0, -10, -1, 0, 10, -1, 0, -10, 1, 0, -10)
+
+[node name="level0" type="Node3D"]
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014470577, 0, 0)
+material_override = SubResource("StandardMaterial3D_1pyxk")
+mesh = SubResource("PlaneMesh_wr4sc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gaw6k")
+
+[node name="Player" parent="." instance=ExtResource("1_wr4sc")]
+transform = Transform3D(0.080529496, 0, 0.9967522, 0, 1, 0, -0.9967522, 0, 0.080529496, 2.5762415, 1.1592028, 2.1287668)
