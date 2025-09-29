@@ -14,12 +14,13 @@ var cam_yaw : float = 0
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(get_parent().name.to_int(), true)
-	$Label3D_name.text = playername
-	$MeshInstance3D.mesh.material.albedo_color = color
+	
 
 func _ready() -> void:
 	global_position.y = 10
-
+	if is_multiplayer_authority():
+		$Label3D_name.text = playername
+		$MeshInstance3D.mesh.material.albedo_color = color
 
 func _physics_process(delta):
 	if is_multiplayer_authority():
