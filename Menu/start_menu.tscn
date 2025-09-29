@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3 uid="uid://bipqdudfu3u4m"]
+
+[ext_resource type="Script" uid="uid://bn7b1l8txyurw" path="res://Menu/start_menu.gd" id="1_gnuge"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gnuge")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7696908, 0.56733143, 0.8236971, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.5
+offset_top = -243.5
+offset_right = 214.5
+offset_bottom = 243.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 41.5
+offset_top = 45.5
+offset_right = 388.5
+offset_bottom = 100.5
+theme_override_font_sizes/font_size = 40
+text = "Best Online Game"
+
+[node name="Button_connect" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 30.5
+offset_top = 241.5
+offset_right = 102.5
+offset_bottom = 272.5
+text = "Connect"
+
+[node name="Label" type="LineEdit" parent="Panel/Button_connect"]
+visible = false
+layout_mode = 0
+offset_left = 76.0
+offset_top = 1.0
+offset_right = 176.0
+offset_bottom = 32.0
+text = "158.41.57.177"
+
+[node name="Label2" type="Label" parent="Panel/Button_connect"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -27.0
+offset_right = 137.0
+offset_bottom = -4.0
+text = "Disconnected"
+
+[node name="Button_play" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 192.5
+offset_top = 151.5
+offset_right = 236.5
+offset_bottom = 182.5
+disabled = true
+text = "Play"
+
+[node name="Button_host" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 288.5
+offset_top = 238.5
+offset_right = 332.5
+offset_bottom = 269.5
+text = "Host"
+
+[node name="Label2" type="Label" parent="Panel/Button_host"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -24.0
+offset_right = 78.0
+offset_bottom = -1.0
+text = "Server offline"
+
+[node name="Button_Quit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 185.5
+offset_top = 359.5
+offset_right = 229.5
+offset_bottom = 390.5
+text = "Quit"
+
+[connection signal="pressed" from="Panel/Button_connect" to="." method="_on_button_connect_pressed"]
+[connection signal="pressed" from="Panel/Button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Panel/Button_host" to="." method="_on_button_host_pressed"]
+[connection signal="pressed" from="Panel/Button_Quit" to="." method="_on_button_quit_pressed"]
