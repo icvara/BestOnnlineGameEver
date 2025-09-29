@@ -13,6 +13,7 @@ var cam_yaw : float = 0
 func _enter_tree() -> void:
 	set_multiplayer_authority(get_parent().name.to_int(), true)
 
+
 func _ready() -> void:
 	global_position.y = 10
 
