@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcv2lkwh74kjy"]
+[gd_scene load_steps=14 format=3 uid="uid://dcv2lkwh74kjy"]
 
 [ext_resource type="PackedScene" uid="uid://cpec2j1xmw03l" path="res://world/target.tscn" id="1_gaw6k"]
 
@@ -8,8 +8,20 @@ albedo_color = Color(0.24952677, 0.51298195, 0.46976316, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_wr4sc"]
 size = Vector2(600, 600)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wr4sc"]
+data = PackedVector3Array(300, 0, 300, -300, 0, 300, 300, 0, -300, -300, 0, 300, -300, 0, -300, 300, 0, -300)
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fapyx"]
-data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+data = PackedVector3Array(300, 0, 300, -300, 0, 300, 300, 0, -300, -300, 0, 300, -300, 0, -300, 300, 0, -300)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bwpbp"]
+data = PackedVector3Array(300, 0, 300, -300, 0, 300, 300, 0, -300, -300, 0, 300, -300, 0, -300, 300, 0, -300)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ieq3g"]
+data = PackedVector3Array(300, 0, 300, -300, 0, 300, 300, 0, -300, -300, 0, 300, -300, 0, -300, 300, 0, -300)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r57kl"]
+data = PackedVector3Array(300, 0, 300, -300, 0, 300, 300, 0, -300, -300, 0, 300, -300, 0, -300, 300, 0, -300)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr4sc"]
 transparency = 1
@@ -57,8 +69,8 @@ mesh = SubResource("PlaneMesh_wr4sc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ground/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fapyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wr4sc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.4157299, 0.86541176, 0.27969816, 0.1546018, -0.37030214, 0.9159558, 0.8962515, -0.33754823, -0.2877398, 2.884136, 11.926075, 1.2868397)
@@ -70,7 +82,7 @@ mesh = SubResource("PlaneMesh_wr4sc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground2"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ground2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_fapyx")
 
 [node name="ground3" type="MeshInstance3D" parent="."]
@@ -81,8 +93,9 @@ skeleton = NodePath("../ground2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground3"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ground3/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fapyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, -1.8626451e-09, 4.656613e-10, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_bwpbp")
 
 [node name="ground4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.00027891897, -0.0008268809, -0.99999964, -0.9475455, 0.3196209, 0, 0.3196208, 0.9475452, -0.0008726556, -58.763626, 17.237486, -193.62775)
@@ -91,8 +104,9 @@ mesh = SubResource("PlaneMesh_wr4sc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground4"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ground4/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fapyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground4/StaticBody3D"]
+transform = Transform3D(1, 0, 2.910383e-11, 0, 1.0000001, 5.820766e-11, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ieq3g")
 
 [node name="ground5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.21680157, -0.9757442, -0.030334234, -0.97619796, 0.21650545, 0.012765683, -0.00588853, 0.03237984, -0.9994582, 155.05359, 17.237486, 0)
@@ -101,8 +115,9 @@ mesh = SubResource("PlaneMesh_wr4sc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground5"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ground5/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fapyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground5/StaticBody3D"]
+transform = Transform3D(1, -8.818461e-09, 0, -9.327778e-09, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_r57kl")
 
 [node name="RigidBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31.537264)
