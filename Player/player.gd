@@ -6,13 +6,16 @@ extends RigidBody3D
 
 @export var camera : Camera3D
 
+var playername = "name"
+var color = Color(1.0, 1.0, 1.0, 1.0)
 
 var cam_yaw : float = 0
 
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(get_parent().name.to_int(), true)
-
+	$Label3D_name.text = playername
+	$MeshInstance3D.mesh.material.albedo_color = color
 
 func _ready() -> void:
 	global_position.y = 10

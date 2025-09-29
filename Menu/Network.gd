@@ -5,6 +5,9 @@ var IP_ADDRESS = "158.41.57.177"
 var PORT = 12345
 var MAX_CLIENTS = 5
 
+var playername = "name"
+var playercolor = Color(1,1,1)
+
 @export var player_scene: PackedScene
 #var isConnected = false
 
@@ -88,4 +91,14 @@ func add_player(id):
 	print(id)
 	var new_player = player_scene.instantiate()
 	new_player.name = str(id)
+	new_player.get_node("Player").playername = playername
+	new_player.get_node("Player").color =  playercolor
 	%Players.add_child(new_player)
+
+
+func _on_line_edit_player_name_text_submitted(new_text: String) -> void:
+	playername = new_text
+
+
+func _on_color_picker_button_color_changed(color: Color) -> void:
+	playercolor = color

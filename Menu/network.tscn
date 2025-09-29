@@ -93,6 +93,21 @@ offset_right = 229.5
 offset_bottom = 390.5
 text = "Quit"
 
+[node name="LineEdit_playerName" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 150.5
+offset_top = 112.5
+offset_right = 282.5
+offset_bottom = 143.5
+placeholder_text = "Your name"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel"]
+layout_mode = 0
+offset_left = 297.5
+offset_top = 104.5
+offset_right = 349.5
+offset_bottom = 154.5
+
 [node name="ID_connection" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -101,3 +116,5 @@ offset_bottom = 23.0
 [connection signal="pressed" from="Panel/Button_play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="Panel/Button_host" to="." method="_on_button_host_pressed"]
 [connection signal="pressed" from="Panel/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="text_submitted" from="Panel/LineEdit_playerName" to="." method="_on_line_edit_player_name_text_submitted"]
+[connection signal="color_changed" from="Panel/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]

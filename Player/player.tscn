@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy8w6mr8jgjfy"]
+[gd_scene load_steps=7 format=3 uid="uid://dy8w6mr8jgjfy"]
 
 [ext_resource type="Script" uid="uid://vgkm0tdxabbq" path="res://Player/player.gd" id="1_l8h54"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l8h54"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8h54"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_4ntmi"]
+material = SubResource("StandardMaterial3D_l8h54")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_l8h54"]
 properties/0/path = NodePath(".:position")
@@ -32,3 +35,8 @@ replication_config = SubResource("SceneReplicationConfig_l8h54")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3710916)
 mesh = SubResource("BoxMesh_l8h54")
+
+[node name="Label3D_name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76751876, 0)
+text = "Name"
+font_size = 48
