@@ -40,7 +40,7 @@ func _unhandled_input(event):
 			pitch -= event.relative.y * rotation_speed
 			
 			# Clamp vertical rotation to avoid flipping
-			pitch = clamp(pitch, -1.0, 1.2)
+			pitch = clamp(pitch, 0.5, 1.5)
 			
 			# Apply rotation to pivot
 			rotation = Vector3(pitch, yaw, 0)
