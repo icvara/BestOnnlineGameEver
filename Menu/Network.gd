@@ -7,6 +7,8 @@ var MAX_CLIENTS = 5
 
 var playername = "name"
 var playercolor = Color(1,1,1)
+var test : float = 0.
+
 
 @export var player_scene: PackedScene
 #var isConnected = false
@@ -37,12 +39,16 @@ func _on_button_play_pressed() -> void:
 	#get_tree().change_scene_to_file("res://world/main.tscn")
 	$Panel.hide()	
 	$ColorRect.hide()
-	add_player.rpc_id(1,multiplayer.get_unique_id())
+	add_player.rpc_id(1,multiplayer.get_unique_id(),playername,playercolor)
 	$ID_connection.text = "ID " + str(multiplayer.get_unique_id())
+	#Network_update.rpc_id(1)
 
-	
 
-
+			
+@rpc("any_peer","call_local")	
+func Network_update():
+	for p in %Players.get_children():
+			p.get_node("Player").rpc("network_update")
 		
 func _on_button_host_pressed() -> void:
 		# Create server.
@@ -85,15 +91,13 @@ func on_server_disconnected():
 
 
 @rpc("any_peer","call_local")
-func add_player(id):
-	print(self.get_path()) 
-	print(name)
-	print(id)
+func add_player(id,playername,playercolor):
+	GlobalInfo.player_info[id] = {"col": playercolor}
 	var new_player = player_scene.instantiate()
 	new_player.name = str(id)
-	new_player.get_node("Player").playername = playername
-	new_player.get_node("Player").color =  playercolor
 	%Players.add_child(new_player)
+	new_player.get_node("Player").rpc("set_player_skin",playername,playercolor)
+
 
 
 func _on_line_edit_player_name_text_submitted(new_text: String) -> void:

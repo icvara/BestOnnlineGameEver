@@ -18,4 +18,5 @@ spawn_path = NodePath("../Players")
 unique_name_in_owner = true
 
 [node name="Network" parent="." instance=ExtResource("4_spvjk")]
+unique_name_in_owner = true
 player_scene = ExtResource("2_4f7fj")
