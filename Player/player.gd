@@ -84,7 +84,8 @@ func network_update():
 		get_parent().get_node("Label3D_name").text = playername
 
 func is_on_ground() -> bool:
-	return get_parent().get_node("RayCast3D_ground").is_colliding()
+	var ray = get_parent().get_node("RayCast3D_ground")
+	return ray.get_collision_point().distance_to(global_position) < 1.5
 
 func _physics_process(delta):
 	if is_multiplayer_authority():
@@ -105,7 +106,7 @@ func _physics_process(delta):
 		
 				# Jump
 		if Input.is_action_just_pressed("space") and is_on_ground():
-		#linear_velocity.y == 0:
+		#linear_velocity.y == 0
 			apply_impulse(Vector3.UP * jump_force)
 		
 		if input_vector != Vector3.ZERO:
