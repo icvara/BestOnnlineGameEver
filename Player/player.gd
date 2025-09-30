@@ -35,7 +35,7 @@ func set_player_skin(nametag,playercolor):
 
 	# Change the unique instance
 	$MeshInstance3D.material_override.albedo_color = color
-	$Label3D_name.text = nametag
+	get_parent().get_node("Label3D_name").text = nametag
 
 func _ready() -> void:
 	#print(str(get_parent().name.to_int()) + "-" + str(is_multiplayer_authority()))
@@ -58,15 +58,15 @@ func network_update():
 		if $MeshInstance3D.material_override == null:
 				$MeshInstance3D.material_override = $MeshInstance3D.mesh.material.duplicate()
 		$MeshInstance3D.material_override.albedo_color = color
-		$Label3D_name.text = playername
+		get_parent().get_node("Label3D_name").text = playername
 
 func is_on_ground() -> bool:
-	return $RayCast3D_ground.is_colliding()
+	return get_parent().get_node("RayCast3D_ground").is_colliding()
 
 func _physics_process(delta):
 	if is_multiplayer_authority():
 		var input_vector := Vector3.ZERO
-	
+		
 		# Get input
 		if Input.is_action_pressed("up"):
 			input_vector.x -= 1
@@ -78,6 +78,7 @@ func _physics_process(delta):
 			input_vector.z -= 1
 		if Input.is_action_just_pressed("space"):
 			network_update.rpc()
+			print(get_parent().get_node("RayCast3D_ground").is_colliding())
 		
 				# Jump
 		if Input.is_action_just_pressed("space") and is_on_ground():
@@ -86,7 +87,6 @@ func _physics_process(delta):
 		
 		if input_vector != Vector3.ZERO:
 			input_vector = input_vector.normalized()
-			print(linear_velocity)
 			# Rotate input to match camera orientation
 			#var cam_yaw :float= camera_pivot.rotation.y
 			var direction := input_vector.rotated(Vector3.UP, cam_yaw)

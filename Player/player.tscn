@@ -37,9 +37,5 @@ replication_config = SubResource("SceneReplicationConfig_l8h54")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3710916)
+visible = false
 mesh = SubResource("BoxMesh_l8h54")
-
-[node name="Label3D_name" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76751876, 0)
-text = "Name"
-font_size = 48
