@@ -1,7 +1,9 @@
 extends RigidBody3D
 
 
-@export var move_force := 2.0  # Adjust to taste
+@export var move_force := 60.0  # Adjust to taste
+@export var max_speed := 30.0  # tweak as needed 
+@export var jump_force := 80.0  # tweak this for desired jump height
 
 
 @export var camera : Camera3D
@@ -81,10 +83,13 @@ func network_update():
 		$MeshInstance3D.material_override.albedo_color = color
 		$Label3D_name.text = playername
 
+func is_on_ground() -> bool:
+	return $RayCast3D_ground.is_colliding()
+
 func _physics_process(delta):
 	if is_multiplayer_authority():
 		var input_vector := Vector3.ZERO
-
+	
 		# Get input
 		if Input.is_action_pressed("up"):
 			input_vector.x -= 1
@@ -99,9 +104,14 @@ func _physics_process(delta):
 			print(data)
 			set_player_skin(data["name"],data["col"])
 		
+				# Jump
+		if Input.is_action_just_pressed("space") and is_on_ground():
+		#linear_velocity.y == 0:
+			apply_impulse(Vector3.UP * jump_force)
+		
 		if input_vector != Vector3.ZERO:
 			input_vector = input_vector.normalized()
-			
+			print(linear_velocity)
 			# Rotate input to match camera orientation
 			#var cam_yaw :float= camera_pivot.rotation.y
 			var direction := input_vector.rotated(Vector3.UP, cam_yaw)
@@ -109,3 +119,6 @@ func _physics_process(delta):
 			# Apply force in the desired direction
 			#apply_torque_impulse(direction.cross(Vector3.UP) * move_force)
 			apply_impulse(direction.cross(Vector3.UP) * move_force*delta)
+			# 🔹 Cap velocity
+		if linear_velocity.length() > max_speed:
+			linear_velocity = linear_velocity.normalized() * max_speed
