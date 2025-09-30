@@ -1,14 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://euf6egnlr2ks"]
+[gd_scene load_steps=6 format=3 uid="uid://euf6egnlr2ks"]
 
 [ext_resource type="PackedScene" uid="uid://dy8w6mr8jgjfy" path="res://Player/player.tscn" id="1_7ia6u"]
 [ext_resource type="Script" uid="uid://blicehhecg2ya" path="res://Player/player_info.gd" id="1_bd1d3"]
 [ext_resource type="Script" uid="uid://vwjwxn7eodtr" path="res://Player/camera.gd" id="2_7ia6u"]
+[ext_resource type="Script" uid="uid://captlk2tunw2l" path="res://Player/ray_cast_3d_ground.gd" id="3_kvi71"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bd1d3"]
+bounce = 0.54
 
 [node name="Player_node" type="Node3D"]
 script = ExtResource("1_bd1d3")
 
 [node name="Player" parent="." instance=ExtResource("1_7ia6u")]
+physics_material_override = SubResource("PhysicsMaterial_bd1d3")
 gravity_scale = 3.0
+
+[node name="RayCast3D_ground" type="RayCast3D" parent="Player"]
+target_position = Vector3(0, -1.5, 0)
+script = ExtResource("3_kvi71")
 
 [node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 unique_name_in_owner = true

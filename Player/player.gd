@@ -60,6 +60,9 @@ func network_update():
 		$MeshInstance3D.material_override.albedo_color = color
 		$Label3D_name.text = playername
 
+func is_on_ground() -> bool:
+	return $RayCast3D_ground.is_colliding()
+
 func _physics_process(delta):
 	if is_multiplayer_authority():
 		var input_vector := Vector3.ZERO
@@ -77,7 +80,8 @@ func _physics_process(delta):
 			network_update.rpc()
 		
 				# Jump
-		if Input.is_action_just_pressed("space") and linear_velocity.y == 0:
+		if Input.is_action_just_pressed("space") and is_on_ground():
+		#linear_velocity.y == 0:
 			apply_impulse(Vector3.UP * jump_force)
 		
 		if input_vector != Vector3.ZERO:
