@@ -92,11 +92,14 @@ func on_server_disconnected():
 
 @rpc("any_peer","call_local")
 func add_player(id,playername,playercolor):
-	GlobalInfo.player_info[id] = {"col": playercolor}
+	GlobalInfo.player_info[id] = {"col": playercolor,
+								"name": playername
+									}
+
 	var new_player = player_scene.instantiate()
 	new_player.name = str(id)
 	%Players.add_child(new_player)
-	new_player.get_node("Player").rpc("set_player_skin",playername,playercolor)
+	#new_player.get_node("Player").rpc("set_player_skin",playername,playercolor)
 
 
 
