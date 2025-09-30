@@ -21,7 +21,7 @@ properties/2/spawn = true
 properties/2/replication_mode = 1
 
 [sub_resource type="BoxMesh" id="BoxMesh_l8h54"]
-size = Vector3(0.2, 1, 1)
+size = Vector3(0.2, 0.2, 1.2)
 
 [node name="Player" type="RigidBody3D"]
 script = ExtResource("1_l8h54")
@@ -36,6 +36,9 @@ mesh = SubResource("SphereMesh_4ntmi")
 replication_config = SubResource("SceneReplicationConfig_l8h54")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3710916)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.066034466)
+mesh = SubResource("BoxMesh_l8h54")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.039835356, 0, -0.99920624, 0, 1, 0, 0.99920624, 0, 0.039835356, 0, 0, -0.026117444)
 mesh = SubResource("BoxMesh_l8h54")

@@ -116,6 +116,7 @@ shape = SubResource("ConcavePolygonShape3D_wr4sc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.4157299, 0.86541176, 0.27969816, 0.1546018, -0.37030214, 0.9159558, 0.8962515, -0.33754823, -0.2877398, 2.884136, 11.926075, 1.2868397)
+shadow_enabled = true
 
 [node name="ground2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3196209, 0.9475455, 0, -0.9475455, 0.3196209, 0, 0, 0, 1, -237.73782, 17.237486, 0)

@@ -100,7 +100,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("right"):
 			input_vector.z -= 1
 		if Input.is_action_just_pressed("space"):
-			network_update.rpc()
+			#network_update.rpc()
 			print(get_parent().get_node("RayCast3D_ground").is_colliding())
 		
 				# Jump
