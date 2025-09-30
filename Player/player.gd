@@ -13,6 +13,7 @@ var color_r = 0.0
 var color_g = 0.0
 var color_b = 0.0
 
+var data = {}
 
 var cam_yaw : float = 0
 
@@ -20,29 +21,51 @@ var cam_yaw : float = 0
 func _enter_tree() -> void:
 	set_multiplayer_authority(get_parent().name.to_int(), true)
 	
+	
+	
+	
+@rpc("any_peer","call_local")
+func get_player_data_on_server(IDdataasked,IDclient):
+	var dataserver = {}
+	if GlobalInfo.player_info.has(IDdataasked):
+		dataserver = GlobalInfo.player_info[IDdataasked]
+		send_player_data_to_client.rpc_id(IDclient,dataserver)
+		
+		#set_player_skin.rpc_id(IDclient,data["name"],data["col"])
+
+@rpc("any_peer","call_local")
+func send_player_data_to_client(dataserver):
+	data = dataserver
+	
+
 @rpc("any_peer","call_local")
 func set_player_skin(nametag,playercolor):
 	#if is_multiplayer_authority():
 	playername = nametag
 	color =  playercolor
-	color_r =  playercolor.r
-	color_g =  playercolor.g
-	color_b =  playercolor.b
-		#$MeshInstance3D.material = $MeshInstance3D.mesh.material.duplicate()
+
 	if $MeshInstance3D.material_override == null:
 			$MeshInstance3D.material_override = $MeshInstance3D.mesh.material.duplicate()
-
-
 	# Change the unique instance
 	$MeshInstance3D.material_override.albedo_color = color
 	get_parent().get_node("Label3D_name").text = nametag
 
 func _ready() -> void:
 	#print(str(get_parent().name.to_int()) + "-" + str(is_multiplayer_authority()))
-	#print(color)
+	#print(data)
 	global_position.y = 10
-	if multiplayer.is_server():
-		color = GlobalInfo.player_info[get_parent().name.to_int()]["col"]
+	#print(get_parent().name + "-"  + str(multiplayer.get_unique_id()))
+	get_player_data_on_server.rpc_id(1,(get_parent().name.to_int()),  multiplayer.get_unique_id())
+	#await get_tree().create_timer(1.0).timeout
+	#print("---"  + str(is_multiplayer_authority()))
+	#print(str(data) + "-" + str(multiplayer.get_unique_id()) + str(is_multiplayer_authority()))
+	await get_tree().create_timer(1.0).timeout
+	set_player_skin(data["name"],data["col"])
+
+	
+	
+	#if multiplayer.is_server():
+		#color = GlobalInfo.player_info[get_parent().name.to_int()]["col"]
 	#set_player_skin.rpc(playername,Color(color_r,color_g,color_b))
 	#print(get_parent().playername)
 
