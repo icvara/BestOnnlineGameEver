@@ -19,6 +19,7 @@ script = ExtResource("1_bd1d3")
 [node name="Player" parent="." instance=ExtResource("1_7ia6u")]
 physics_material_override = SubResource("PhysicsMaterial_bd1d3")
 gravity_scale = 3.0
+angular_damp = 1.0
 
 [node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
