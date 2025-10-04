@@ -1,6 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://dcv2lkwh74kjy"]
+[gd_scene load_steps=27 format=3 uid="uid://dcv2lkwh74kjy"]
 
 [ext_resource type="PackedScene" uid="uid://cpec2j1xmw03l" path="res://world/target.tscn" id="1_gaw6k"]
+[ext_resource type="PackedScene" uid="uid://b552ryr5ill6l" path="res://world/ball.tscn" id="2_gaw6k"]
+[ext_resource type="PackedScene" uid="uid://donpaq1mbvqhj" path="res://world/block.tscn" id="3_fapyx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pyxk"]
 albedo_color = Color(0.24952677, 0.51298195, 0.46976316, 1)
@@ -966,3 +968,9 @@ mesh = SubResource("BoxMesh_8e8bo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D70"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.242714, 20.97091, 47.594307)
 shape = SubResource("ConcavePolygonShape3D_dj0cm")
+
+[node name="ball" parent="." instance=ExtResource("2_gaw6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.325447, 5.121275, 14.409427)
+
+[node name="cube" parent="." instance=ExtResource("3_fapyx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.864315, -56.81185)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://donpaq1mbvqhj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5je6b"]
+albedo_color = Color(0, 0.46523196, 0.46570224, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttf62"]
+material = SubResource("StandardMaterial3D_5je6b")
+size = Vector3(5, 5, 5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q7ev5"]
+top_radius = 0.2
+
+[sub_resource type="PrismMesh" id="PrismMesh_bko3w"]
+size = Vector3(1.2, 0.8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ja21k"]
+size = Vector3(5, 5, 5)
+
+[node name="cube" type="RigidBody3D"]
+mass = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ttf62")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.07275081, -0.99735016, 0, 0.99735016, 0.07275081, -0.49103427, 1.0702463, 2.170562)
+mesh = SubResource("CylinderMesh_q7ev5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.8896875, 0.45499802, -0.037855394, 0, -0.082912564, -0.9965568, -0.45657006, 0.8866241, -0.07376627, 0.45516562, 1.0702463, 1.9583013)
+mesh = SubResource("CylinderMesh_q7ev5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.9993335, 0.03650179, 0.0004173014, -0.036154397, -0.9912721, 0.12677795, 0.0050412836, 0.12667838, 0.9919312, -0.020866394, -0.3362025, 2.1672764)
+mesh = SubResource("PrismMesh_bko3w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ja21k")

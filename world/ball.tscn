@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b552ryr5ill6l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bko3w"]
+albedo_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_51eif"]
+material = SubResource("StandardMaterial3D_bko3w")
+radius = 2.0
+height = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q7ev5"]
+top_radius = 0.2
+
+[sub_resource type="PrismMesh" id="PrismMesh_bko3w"]
+size = Vector3(1.2, 0.8, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q7ev5"]
+radius = 2.0
+
+[node name="ball" type="RigidBody3D"]
+mass = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_51eif")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49103427, 1.0702463, -0.3535043)
+mesh = SubResource("CylinderMesh_q7ev5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45516562, 1.0702463, -0.45368266)
+mesh = SubResource("CylinderMesh_q7ev5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.9993335, 0.03650179, 0.00041730143, 0, -0.011431608, 0.9999347, 0.036504176, 0.99926823, 0.011423989, -0.020866394, 1.5817505, 0.5251187)
+mesh = SubResource("PrismMesh_bko3w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_q7ev5")

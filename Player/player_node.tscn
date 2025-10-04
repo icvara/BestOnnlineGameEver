@@ -38,5 +38,6 @@ skeleton = NodePath("")
 
 [node name="Label3D_name" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76751876, 0)
+billboard = 1
 text = "Name"
 font_size = 48
