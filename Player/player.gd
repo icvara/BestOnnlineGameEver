@@ -85,11 +85,25 @@ func network_update():
 
 func is_on_ground() -> bool:
 	var ray = get_parent().get_node("RayCast3D_ground")
-	return ray.get_collision_point().distance_to(global_position) < 1.5
+	ray.add_exception(self)
+	ray.force_raycast_update()  # make sure it's fresh this frame
+
+	if ray.is_colliding():
+		# Check if the collision point is close enough below the ball
+		var hit_point = ray.get_collision_point()
+		var dist = global_position.distance_to(hit_point)
+		return dist < 1.5
+	else:
+		return false
 
 func _physics_process(delta):
 	if is_multiplayer_authority():
 		var input_vector := Vector3.ZERO
+		
+		if Input.is_action_just_pressed("space") and is_on_ground():
+		#linear_velocity.y == 0
+			linear_velocity.y = jump_force
+			#apply_impulse(Vector3.UP * jump_force)
 		
 		# Get input
 		if Input.is_action_pressed("up"):
@@ -105,11 +119,11 @@ func _physics_process(delta):
 			print(get_parent().get_node("RayCast3D_ground").is_colliding())
 		
 				# Jump
-		if Input.is_action_just_pressed("space") and is_on_ground():
-		#linear_velocity.y == 0
-			apply_impulse(Vector3.UP * jump_force)
-		
+
 		if input_vector != Vector3.ZERO:
+			if Input.is_action_just_pressed("space") and is_on_ground():
+			#linear_velocity.y == 0
+				linear_velocity.y = jump_force
 			input_vector = input_vector.normalized()
 			# Rotate input to match camera orientation
 			#var cam_yaw :float= camera_pivot.rotation.y
