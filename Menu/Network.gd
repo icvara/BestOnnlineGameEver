@@ -109,3 +109,10 @@ func _on_line_edit_player_name_text_submitted(new_text: String) -> void:
 
 func _on_color_picker_button_color_changed(color: Color) -> void:
 	playercolor = color
+
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		IP_ADDRESS = "127.0.0.1"
+	else:
+		IP_ADDRESS = "158.41.57.177"

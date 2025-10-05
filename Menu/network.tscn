@@ -108,6 +108,24 @@ offset_top = 104.5
 offset_right = 349.5
 offset_bottom = 154.5
 
+[node name="CheckBox" type="CheckBox" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.028
+anchor_bottom = 0.049000002
+offset_left = 194.5
+offset_top = 266.5
+offset_right = 206.488
+offset_bottom = 266.637
+
+[node name="Label" type="Label" parent="Panel/CheckBox"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -22.0
+offset_right = 33.0
+offset_bottom = 1.0
+text = "Local"
+
 [node name="ID_connection" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -118,3 +136,4 @@ offset_bottom = 23.0
 [connection signal="pressed" from="Panel/Button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="text_submitted" from="Panel/LineEdit_playerName" to="." method="_on_line_edit_player_name_text_submitted"]
 [connection signal="color_changed" from="Panel/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="toggled" from="Panel/CheckBox" to="." method="_on_check_box_toggled"]
