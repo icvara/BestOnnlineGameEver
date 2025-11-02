@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy8w6mr8jgjfy"]
+[gd_scene load_steps=9 format=3 uid="uid://dy8w6mr8jgjfy"]
 
 [ext_resource type="Script" uid="uid://vgkm0tdxabbq" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://5bibmlcqfm3u" path="res://textures/wallpaper_roughness.jpeg" id="2_4ntmi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l8h54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btcbx"]
+albedo_texture = ExtResource("2_4ntmi")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8h54"]
 
@@ -30,6 +35,7 @@ script = ExtResource("1_l8h54")
 shape = SubResource("SphereShape3D_l8h54")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_btcbx")
 mesh = SubResource("SphereMesh_4ntmi")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

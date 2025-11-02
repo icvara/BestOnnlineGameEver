@@ -1,11 +1,20 @@
-[gd_scene load_steps=27 format=3 uid="uid://dcv2lkwh74kjy"]
+[gd_scene load_steps=33 format=3 uid="uid://dcv2lkwh74kjy"]
 
 [ext_resource type="PackedScene" uid="uid://cpec2j1xmw03l" path="res://world/target.tscn" id="1_gaw6k"]
+[ext_resource type="Texture2D" uid="uid://den5do4563s65" path="res://textures/CeilingTile_Metal.jpeg" id="2_bwpbp"]
 [ext_resource type="PackedScene" uid="uid://b552ryr5ill6l" path="res://world/ball.tscn" id="2_gaw6k"]
+[ext_resource type="Texture2D" uid="uid://dt0r8rl5w7xsa" path="res://textures/wallpaper_basecolor.jpeg" id="2_r57kl"]
 [ext_resource type="PackedScene" uid="uid://donpaq1mbvqhj" path="res://world/block.tscn" id="3_fapyx"]
+[ext_resource type="Texture2D" uid="uid://cvqt2tghgv646" path="res://textures/A5_WoodTextureSeamless.png" id="3_se6ne"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pyxk"]
 albedo_color = Color(0.24952677, 0.51298195, 0.46976316, 1)
+albedo_texture = ExtResource("2_r57kl")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj0cm"]
+albedo_texture = ExtResource("3_se6ne")
+uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wr4sc"]
 size = Vector2(600, 600)
@@ -63,8 +72,18 @@ size = Vector3(600, 1, 50)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_se6ne"]
 data = PackedVector3Array(-300, 0.5, 25, 300, 0.5, 25, -300, -0.5, 25, 300, 0.5, 25, 300, -0.5, 25, -300, -0.5, 25, 300, 0.5, -25, -300, 0.5, -25, 300, -0.5, -25, -300, 0.5, -25, -300, -0.5, -25, 300, -0.5, -25, 300, 0.5, 25, 300, 0.5, -25, 300, -0.5, 25, 300, 0.5, -25, 300, -0.5, -25, 300, -0.5, 25, -300, 0.5, -25, -300, 0.5, 25, -300, -0.5, -25, -300, 0.5, 25, -300, -0.5, 25, -300, -0.5, -25, 300, 0.5, 25, -300, 0.5, 25, 300, 0.5, -25, -300, 0.5, 25, -300, 0.5, -25, 300, 0.5, -25, -300, -0.5, 25, 300, -0.5, 25, -300, -0.5, -25, 300, -0.5, 25, 300, -0.5, -25, -300, -0.5, -25)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dt3u1"]
+albedo_texture = ExtResource("2_bwpbp")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxmge"]
+albedo_texture = ExtResource("2_bwpbp")
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e8bo"]
 albedo_color = Color(0.76862746, 0.4117647, 0.62352943, 0.39215687)
+albedo_texture = ExtResource("2_bwpbp")
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_dj0cm"]
 material = SubResource("StandardMaterial3D_8e8bo")
@@ -109,6 +128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.087154, 1, -26.356178)
 [node name="ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014470577, 0, 0)
 material_override = SubResource("StandardMaterial3D_1pyxk")
+material_overlay = SubResource("StandardMaterial3D_dj0cm")
 mesh = SubResource("PlaneMesh_wr4sc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground"]
@@ -119,6 +139,8 @@ shape = SubResource("ConcavePolygonShape3D_wr4sc")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.4157299, 0.86541176, 0.27969816, 0.1546018, -0.37030214, 0.9159558, 0.8962515, -0.33754823, -0.2877398, 2.884136, 11.926075, 1.2868397)
 shadow_enabled = true
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 200.0
 
 [node name="ground2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3196209, 0.9475455, 0, -0.9475455, 0.3196209, 0, 0, 0, 1, -237.73782, 17.237486, 0)
@@ -214,6 +236,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 378.13873)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -165.51515)
+material_override = SubResource("StandardMaterial3D_dt3u1")
 mesh = SubResource("BoxMesh_ieq3g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
@@ -226,6 +249,7 @@ transform = Transform3D(-0.011065181, 0, 0.9999388, 0, 1, 0, -0.9999388, 0, -0.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -165.51515)
 mesh = SubResource("BoxMesh_ieq3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_kxmge")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -165.51515)
