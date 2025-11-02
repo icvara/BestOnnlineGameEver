@@ -1,7 +1,7 @@
 [gd_resource type="MeshLibrary" load_steps=160 format=4 uid="uid://l8hjbhk65b06"]
 
-[ext_resource type="Texture2D" uid="uid://4ycqp6vgd5qd" path="res://Free_V1.1/Textures/BaseColor.png" id="1_ljbsn"]
-[ext_resource type="Texture2D" uid="uid://c2og7cw2ualmp" path="res://Free_V1.1/Textures/cubedbearpng.png" id="2_otvu3"]
+[ext_resource type="Texture2D" uid="uid://4ycqp6vgd5qd" path="res://Free_V1.1 agrandi/Textures/BaseColor.png" id="1_ljbsn"]
+[ext_resource type="Texture2D" uid="uid://c2og7cw2ualmp" path="res://Free_V1.1 agrandi/Textures/cubedbearpng.png" id="2_otvu3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghkry"]
 resource_name = "base"
