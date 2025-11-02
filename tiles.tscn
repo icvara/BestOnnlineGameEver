@@ -1,0 +1,112 @@
+[gd_scene load_steps=31 format=3 uid="uid://84h8xd3bivfi"]
+
+[ext_resource type="PackedScene" uid="uid://bl18qf7l5er3f" path="res://Free_V1.1/FBX/2m_Bordered_Glass_cherry.fbx" id="1_d17i1"]
+[ext_resource type="PackedScene" uid="uid://ubnripmqj1un" path="res://Free_V1.1/FBX/2m_FloorTrim_white.fbx" id="2_0bd87"]
+[ext_resource type="PackedScene" uid="uid://ctpm27m6kiwsd" path="res://Free_V1.1/FBX/2m_Floor_white.fbx" id="3_khnvu"]
+[ext_resource type="PackedScene" uid="uid://bh15xnp1usyff" path="res://Free_V1.1/FBX/2m_Wall_cherry.fbx" id="4_ceiah"]
+[ext_resource type="PackedScene" uid="uid://be6dp5r0ht7cc" path="res://Free_V1.1/FBX/2m_Wall_Doorhole_cherry.fbx" id="5_b7lvl"]
+[ext_resource type="PackedScene" uid="uid://c082ytoodehfa" path="res://Free_V1.1/FBX/Bed_Twin_cherry.fbx" id="6_pv6v3"]
+[ext_resource type="PackedScene" uid="uid://5u6nccbt5us3" path="res://Free_V1.1/FBX/BookStack_Vertical_cute.fbx" id="7_6r5al"]
+[ext_resource type="PackedScene" uid="uid://bq4al4owooxnu" path="res://Free_V1.1/FBX/Cactus2_wFlowerPot_brownpot.fbx" id="8_515i1"]
+[ext_resource type="PackedScene" uid="uid://cqf4o06eum3ng" path="res://Free_V1.1/FBX/CardboardBox_Square_default.fbx" id="9_t54wm"]
+[ext_resource type="PackedScene" uid="uid://coacokpktpjs3" path="res://Free_V1.1/FBX/Chair_Brown_spruce.fbx" id="10_suf1n"]
+[ext_resource type="PackedScene" uid="uid://bltp8ha64y3hp" path="res://Free_V1.1/FBX/Clock_spruce.fbx" id="11_m8ja4"]
+[ext_resource type="PackedScene" uid="uid://dyf1xrqbor47t" path="res://Free_V1.1/FBX/Couch_cherry.fbx" id="12_vbmue"]
+[ext_resource type="PackedScene" uid="uid://dkxiip54uhw34" path="res://Free_V1.1/FBX/CounterTop_2Layer_2_DrawerDoor_spruce.fbx" id="13_edjiw"]
+[ext_resource type="PackedScene" uid="uid://bckobwecu3bjm" path="res://Free_V1.1/FBX/CounterTop_Sink_0Layer_1Door_spruce.fbx" id="14_jlbcp"]
+[ext_resource type="PackedScene" uid="uid://b4ulxsklqxel2" path="res://Free_V1.1/FBX/Door_white.fbx" id="15_fwdeo"]
+[ext_resource type="PackedScene" uid="uid://qmx8kl44400y" path="res://Free_V1.1/FBX/FloorTrim_Corner_white.fbx" id="16_5btgn"]
+[ext_resource type="PackedScene" uid="uid://mb7m84vfhram" path="res://Free_V1.1/FBX/Fridge_cherry.fbx" id="17_3ffb2"]
+[ext_resource type="PackedScene" uid="uid://bgjue4rb42u7q" path="res://Free_V1.1/FBX/Magazine_Open_default.fbx" id="18_28mub"]
+[ext_resource type="PackedScene" uid="uid://bawprbcl078sj" path="res://Free_V1.1/FBX/MiniBear_default.fbx" id="19_5e66j"]
+[ext_resource type="PackedScene" uid="uid://n55msk2t113f" path="res://Free_V1.1/FBX/Mug_cute.fbx" id="20_jtqmc"]
+[ext_resource type="PackedScene" uid="uid://uca21647rr3l" path="res://Free_V1.1/FBX/Rug_Round_default.fbx" id="21_wksfl"]
+[ext_resource type="PackedScene" uid="uid://r10p6hmljueb" path="res://Free_V1.1/FBX/Shelf_Cube_3x3_white.fbx" id="22_gdti8"]
+[ext_resource type="PackedScene" uid="uid://cmunar6gl0bob" path="res://Free_V1.1/FBX/StandingLamp_Lit_default.fbx" id="23_uwd6o"]
+[ext_resource type="PackedScene" uid="uid://wp87tw3cj4a5" path="res://Free_V1.1/FBX/StoveHood_default.fbx" id="24_peg0u"]
+[ext_resource type="PackedScene" uid="uid://cvld08xe8rgn3" path="res://Free_V1.1/FBX/Stovetop_default.fbx" id="25_v00c4"]
+[ext_resource type="PackedScene" uid="uid://d04g1o8o4vhmv" path="res://Free_V1.1/FBX/TablePhoto_Square_Small_oak.fbx" id="26_1m7kx"]
+[ext_resource type="PackedScene" uid="uid://2qiq2l1i7pmj" path="res://Free_V1.1/FBX/Table_Long_spruce.fbx" id="27_1png3"]
+[ext_resource type="PackedScene" uid="uid://b12ffu60e40vg" path="res://Free_V1.1/FBX/Tulip_GlassVase_default.fbx" id="28_wcyak"]
+[ext_resource type="PackedScene" uid="uid://bctm32kugn41u" path="res://Free_V1.1/FBX/WallCabinet_2Layer_1Door_spruce.fbx" id="29_c6ew2"]
+[ext_resource type="PackedScene" uid="uid://cscpq5l58uc7y" path="res://Free_V1.1/FBX/WallPhoto_Rectangle_spruce.fbx" id="30_nc7a3"]
+
+[node name="Tiles" type="Node3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="2m_Bordered_Glass_cherry" parent="." instance=ExtResource("1_d17i1")]
+
+[node name="2m_FloorTrim_white" parent="." instance=ExtResource("2_0bd87")]
+
+[node name="2m_Floor_white" parent="." instance=ExtResource("3_khnvu")]
+
+[node name="2m_Wall_cherry" parent="." instance=ExtResource("4_ceiah")]
+
+[node name="2m_Wall_Doorhole_cherry" parent="." instance=ExtResource("5_b7lvl")]
+
+[node name="Bed_Twin_cherry" parent="." instance=ExtResource("6_pv6v3")]
+
+[node name="BookStack_Vertical_cute" parent="." instance=ExtResource("7_6r5al")]
+
+[node name="Cactus2_wFlowerPot_brownpot" parent="." instance=ExtResource("8_515i1")]
+
+[node name="CardboardBox_Square_default" parent="." instance=ExtResource("9_t54wm")]
+
+[node name="Chair_Brown_spruce" parent="." instance=ExtResource("10_suf1n")]
+
+[node name="Clock_spruce" parent="." instance=ExtResource("11_m8ja4")]
+
+[node name="Couch_cherry" parent="." instance=ExtResource("12_vbmue")]
+
+[node name="CounterTop_2Layer_2_DrawerDoor_spruce" parent="." instance=ExtResource("13_edjiw")]
+
+[node name="CounterTop_Sink_0Layer_1Door_spruce" parent="." instance=ExtResource("14_jlbcp")]
+visible = false
+
+[node name="Door_white" parent="." instance=ExtResource("15_fwdeo")]
+visible = false
+
+[node name="FloorTrim_Corner_white" parent="." instance=ExtResource("16_5btgn")]
+visible = false
+
+[node name="Fridge_cherry" parent="." instance=ExtResource("17_3ffb2")]
+visible = false
+
+[node name="Magazine_Open_default" parent="." instance=ExtResource("18_28mub")]
+visible = false
+
+[node name="MiniBear_default" parent="." instance=ExtResource("19_5e66j")]
+visible = false
+
+[node name="Mug_cute" parent="." instance=ExtResource("20_jtqmc")]
+visible = false
+
+[node name="Rug_Round_default" parent="." instance=ExtResource("21_wksfl")]
+visible = false
+
+[node name="Shelf_Cube_3x3_white" parent="." instance=ExtResource("22_gdti8")]
+visible = false
+
+[node name="StandingLamp_Lit_default" parent="." instance=ExtResource("23_uwd6o")]
+visible = false
+
+[node name="StoveHood_default" parent="." instance=ExtResource("24_peg0u")]
+visible = false
+
+[node name="Stovetop_default" parent="." instance=ExtResource("25_v00c4")]
+visible = false
+
+[node name="TablePhoto_Square_Small_oak" parent="." instance=ExtResource("26_1m7kx")]
+visible = false
+
+[node name="Table_Long_spruce" parent="." instance=ExtResource("27_1png3")]
+visible = false
+
+[node name="Tulip_GlassVase_default" parent="." instance=ExtResource("28_wcyak")]
+visible = false
+
+[node name="WallCabinet_2Layer_1Door_spruce" parent="." instance=ExtResource("29_c6ew2")]
+visible = false
+
+[node name="WallPhoto_Rectangle_spruce" parent="." instance=ExtResource("30_nc7a3")]
+visible = false

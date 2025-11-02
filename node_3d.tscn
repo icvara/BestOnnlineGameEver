@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2142f1ckbt1s"]
+
+[ext_resource type="PackedScene" uid="uid://ctpm27m6kiwsd" path="res://Free_V1.1/FBX/2m_Floor_white.fbx" id="1_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://c082ytoodehfa" path="res://Free_V1.1/FBX/Bed_Twin_cherry.fbx" id="2_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://be6dp5r0ht7cc" path="res://Free_V1.1/FBX/2m_Wall_Doorhole_cherry.fbx" id="3_jka67"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="2m_Floor_white" parent="." instance=ExtResource("1_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04797852, 0, 0.9908953)
+
+[node name="2m_Floor_white2" parent="." instance=ExtResource("1_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9669366, 0, 0.9908953)
+
+[node name="2m_Floor_white3" parent="." instance=ExtResource("1_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04797852, 0, 2.9908953)
+
+[node name="2m_Floor_white4" parent="." instance=ExtResource("1_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046069205, 0, 4.9817905)
+
+[node name="Bed_Twin_cherry" parent="." instance=ExtResource("2_r3fl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13100815, 0.26101887, 1.6616092)
+
+[node name="2m_Wall_Doorhole_cherry" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="2m_Wall_Doorhole_cherry2" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="2m_Wall_Doorhole_cherry3" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="2m_Wall_Doorhole_cherry4" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="2m_Wall_Doorhole_cherry5" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="2m_Wall_Doorhole_cherry6" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
+
+[node name="2m_Wall_Doorhole_cherry7" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="2m_Wall_Doorhole_cherry8" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -1)
+
+[node name="2m_Wall_Doorhole_cherry9" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -1)
+
+[node name="2m_Wall_Doorhole_cherry10" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -1)
+
+[node name="2m_Wall_Doorhole_cherry11" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -1)
+
+[node name="2m_Wall_Doorhole_cherry12" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -1)
+
+[node name="2m_Wall_Doorhole_cherry13" parent="." instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3999996, 3, -1)
+
+[node name="2m_Wall_Doorhole_cherry2" parent="2m_Wall_Doorhole_cherry13" instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
+
+[node name="2m_Wall_Doorhole_cherry3" parent="2m_Wall_Doorhole_cherry13" instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 0)
+
+[node name="2m_Wall_Doorhole_cherry4" parent="2m_Wall_Doorhole_cherry13" instance=ExtResource("3_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0)
